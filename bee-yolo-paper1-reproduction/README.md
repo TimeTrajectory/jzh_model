@@ -2,7 +2,7 @@
 
 本项目对应 Alex 等的论文 [*Enhancing pollinator conservation: Monitoring of bees through object recognition*](https://doi.org/10.1016/j.compag.2024.109665)（*Computers and Electronics in Agriculture*, 2024）。核心流程是单类蜜蜂图像检测，以及将检测器用于视频抽帧、可见数量记录和网页演示。`track_video.py` 和 YOLO26m 是后续扩展，**不属于原论文的核心结果**。
 
-这是从已保存的实验源码重新整理的独立学习项目。`reference_results/` 存放旧实验的指标和数据审计记录，供核对；它们不是重新运行后产生的新结果。仓库不包含大型数据集、模型权重、虚拟环境或论文 PDF，首次使用时按下文下载公开资源。
+这是从已保存的实验源码重新整理的独立学习项目。`REPORT.md` 汇总旧实验指标并说明与论文的差异；这些旧指标不是重新训练后产生的新结果。仓库不包含大型数据集、模型权重、虚拟环境或论文 PDF，首次使用时按下文下载公开资源。
 
 ## 源码导览
 
@@ -41,7 +41,7 @@ python app.py
 
 ## 公开资源和复现口径
 
-- [公开数据集 Bee Detection in the Wild](https://www.kaggle.com/datasets/birdy654/bee-detection-in-the-wild)：当前归档记录为 9,631 张图像、13,374 个蜜蜂框，原论文报告为 9,664 张、13,402 个框。下载哈希和分割清单见 `download_assets.py`、`reference_results/dataset_audit.json`。
+- [公开数据集 Bee Detection in the Wild](https://www.kaggle.com/datasets/birdy654/bee-detection-in-the-wild)：当前归档记录为 9,631 张图像、13,374 个蜜蜂框，原论文报告为 9,664 张、13,402 个框。下载哈希见 `download_assets.py`；数据划分在运行 `prepare_dataset.py` 后写入本地 `dataset_audit.json`。
 - [作者原项目与权重](https://github.com/AjayJohnAlex/Bee_Detection)：可先用作者权重做本地测试，再运行本项目的 YOLOv5m 训练。
 - [YOLOv5 v7.0](https://github.com/ultralytics/yolov5/tree/v7.0)：本项目固定的公开实现选择；原论文没有明确给出源码提交。
 

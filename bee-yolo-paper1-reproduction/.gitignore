@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+cache/
+dataset/
+downloads/
+weights/
+vendor/
+runs/
+*.core
+core
+/dataset.yaml
+/dataset_audit.json
+/environment.json
+/reference_results/
