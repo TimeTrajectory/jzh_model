@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+data/
+downloads/
+vendor/
+weights/
+runs/
+train.txt
+val.txt
+test.txt
+*.cache
+bee22.yaml
+bee22_test.yaml
+dataset_manifest.json
