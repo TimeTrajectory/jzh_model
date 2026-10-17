@@ -39,6 +39,19 @@ def main() -> None:
     box = result.box
     precision = float(box.mp)
     recall = float(box.mr)
+    class_ids = [int(value) for value in box.ap_class_index.tolist()]
+    per_class = {
+        NAMES[class_id]: {
+            "precision": float(box.p[index]),
+            "recall": float(box.r[index]),
+            "f1": float(box.f1[index]),
+            "ap50": float(box.ap50[index]),
+            "map50_95": float(box.ap[index]),
+        }
+        for index, class_id in enumerate(class_ids)
+    }
+    speed_ms_per_image = {key: float(value) for key, value in result.speed.items()}
+    inference_ms = speed_ms_per_image.get("inference", 0.0)
     metrics = {
         "weights": str(args.weights.relative_to(ROOT)),
         "weights_sha256": sha256(args.weights),
@@ -47,7 +60,9 @@ def main() -> None:
         "f1_from_mean_precision_recall": 2 * precision * recall / (precision + recall) if precision + recall else 0.0,
         "map50": float(box.map50),
         "map50_95": float(box.map),
-        "per_class_map50_95": {name: float(value) for name, value in zip(NAMES, box.maps)},
+        "per_class": per_class,
+        "speed_ms_per_image": speed_ms_per_image,
+        "inference_fps": 1000.0 / inference_ms if inference_ms else None,
         "paper_yolov10_accuracy": 0.939,
         "paper_yolov10_f1": 0.92,
         "note": "The paper's custom accuracy is not directly equivalent to Ultralytics mAP metrics.",
