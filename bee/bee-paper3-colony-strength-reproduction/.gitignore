@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+downloads/
+data/
+runs/
+weights/
+*.cache
+dataset.yaml
+dataset_manifest.json
+archive_manifest.json
+
