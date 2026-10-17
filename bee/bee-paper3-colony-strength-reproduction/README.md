@@ -19,6 +19,8 @@
 - YOLOv10X：1080×1080，batch 4，SGD，初始学习率 0.01，early stopping patience 10。
 - 作者报告：accuracy 93.9%、F1 0.92、25.93 FPS。
 
+`evaluate.py` 同时保存整体与逐类别 Precision、Recall、F1、AP50、mAP50-95，以及当前硬件上的纯推理 FPS。论文将目标检测中的 TN 纳入 accuracy，但没有公开其背景 TN 的计算方式，因此本项目不会用 mAP 代替论文 accuracy。
+
 论文没有公开逐帧划分清单和随机种子。本项目固定 seed 50，并保存 `dataset_manifest.json`，使本次划分可以审计和重复。
 
 ## 使用
