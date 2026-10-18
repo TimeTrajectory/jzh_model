@@ -1,0 +1,42 @@
+{
+  "weights": "runs/detector/yolov10x_seed50/weights/best.pt",
+  "weights_sha256": "46e72c5b4eb13251a160a5a932616196226f18546f6116f0bea1cc9be4fbc407",
+  "precision": 0.9454584986542035,
+  "recall": 0.9253628637440436,
+  "f1_from_mean_precision_recall": 0.9353027514548521,
+  "map50": 0.9629206728356564,
+  "map50_95": 0.6374264978037225,
+  "per_class": {
+    "WB no pollen": {
+      "precision": 0.9745841235408046,
+      "recall": 0.9464879996119203,
+      "f1": 0.9603306054223968,
+      "ap50": 0.9881292723121292,
+      "map50_95": 0.6716374548882649
+    },
+    "WB pollen": {
+      "precision": 0.896746316995284,
+      "recall": 0.8937093275488069,
+      "f1": 0.8952252465855363,
+      "ap50": 0.9316523812975847,
+      "map50_95": 0.6353535878504497
+    },
+    "Drone bee": {
+      "precision": 0.965045055426522,
+      "recall": 0.9358912640714038,
+      "f1": 0.9502446005635079,
+      "ap50": 0.9689803648972553,
+      "map50_95": 0.6052884506724527
+    }
+  },
+  "speed_ms_per_image": {
+    "preprocess": 0.5534479784127934,
+    "inference": 6.248259687621739,
+    "loss": 0.0018995348567017283,
+    "postprocess": 0.4722786446412404
+  },
+  "inference_fps": 160.0445644058414,
+  "paper_yolov10_accuracy": 0.939,
+  "paper_yolov10_f1": 0.92,
+  "note": "The paper's custom accuracy is not directly equivalent to Ultralytics mAP metrics."
+}

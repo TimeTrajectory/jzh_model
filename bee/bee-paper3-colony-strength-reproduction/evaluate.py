@@ -33,7 +33,7 @@ def main() -> None:
     model = YOLO(str(args.weights))
     result = model.val(
         data=str(args.data), split="test", imgsz=args.imgsz, batch=args.batch,
-        device=args.device, conf=0.001, iou=0.6, plots=True, save_json=True,
+        device=args.device, conf=0.001, iou=0.6, plots=True, save_json=False,
         project=str(ROOT / "runs/evaluation"), name="test", exist_ok=True,
     )
     box = result.box
