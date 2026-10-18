@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
 import json
 import random
@@ -57,11 +58,31 @@ def extract_nested_archives(root: Path) -> None:
             safe_extract(archive, destination)
 
 
-def find_image(annotation: Path, payload: dict) -> Path:
+def find_image(annotation: Path, payload: dict, image_index: dict[str, list[Path]]) -> Path:
+    same_stem = [
+        path
+        for suffix in (".jpg", ".jpeg", ".png")
+        for path in image_index.get(f"{annotation.stem}{suffix}".lower(), [])
+    ]
+    if len(same_stem) == 1:
+        return same_stem[0]
+    embedded = payload.get("imageData")
+    if embedded:
+        image_path = str(payload.get("imagePath") or "image.jpg").replace("\\", "/")
+        suffix = Path(image_path).suffix.lower() or ".jpg"
+        recovered = annotation.parent.parent / "recovered_images" / f"{annotation.stem}{suffix}"
+        recovered.parent.mkdir(parents=True, exist_ok=True)
+        if not recovered.exists():
+            recovered.write_bytes(base64.b64decode(embedded))
+        return recovered
     candidates = []
     image_path = payload.get("imagePath")
     if image_path:
-        candidates.append(annotation.parent / Path(str(image_path)).name)
+        image_name = str(image_path).replace("\\", "/").rsplit("/", 1)[-1]
+        candidates.append(annotation.parent / image_name)
+        indexed = image_index.get(image_name.lower(), [])
+        if len(indexed) == 1:
+            candidates.append(indexed[0])
     candidates.extend(annotation.with_suffix(suffix) for suffix in (".jpg", ".jpeg", ".png", ".JPG", ".JPEG", ".PNG"))
     for candidate in candidates:
         if candidate.is_file():
@@ -112,7 +133,22 @@ def main() -> None:
     output = ROOT / "data/yolo"
     safe_extract(args.archive.resolve(), raw)
     extract_nested_archives(raw)
-    annotations = sorted(path for path in raw.rglob("*.json") if path.name.lower() not in {"metadata.json", "dataset_manifest.json"})
+    images = [
+        path for path in raw.rglob("*")
+        if path.is_file()
+        and path.suffix.lower() in {".jpg", ".jpeg", ".png"}
+        and "__MACOSX" not in path.parts
+        and not path.name.startswith("._")
+    ]
+    image_index: dict[str, list[Path]] = {}
+    for image in images:
+        image_index.setdefault(image.name.lower(), []).append(image)
+    annotations = sorted(
+        path for path in raw.rglob("*.json")
+        if path.name.lower() not in {"metadata.json", "dataset_manifest.json"}
+        and "__MACOSX" not in path.parts
+        and not path.name.startswith("._")
+    )
     labelme: list[tuple[Path, dict, Path]] = []
     skipped = []
     for annotation in annotations:
@@ -120,7 +156,7 @@ def main() -> None:
             payload = json.loads(annotation.read_text(encoding="utf-8-sig"))
             if not isinstance(payload.get("shapes"), list):
                 continue
-            image = find_image(annotation, payload)
+            image = find_image(annotation, payload, image_index)
             labelme.append((annotation, payload, image))
         except (json.JSONDecodeError, FileNotFoundError, UnicodeDecodeError) as error:
             skipped.append({"annotation": str(annotation), "reason": str(error)})
