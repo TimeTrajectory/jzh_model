@@ -26,6 +26,9 @@ def main() -> None:
 
     model_source = ROOT / "runs/detector" / args.name / "weights/last.pt" if args.resume else args.model
     model = YOLO(str(model_source))
+    if args.resume:
+        model.train(resume=True)
+        return
     model.train(
         data=str(args.data),
         epochs=args.epochs,
