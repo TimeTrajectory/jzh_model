@@ -214,6 +214,20 @@ tail -n 2 runs/detector/yolov10x_seed50/results.csv
 reports/第三篇论文复现结果报告.pdf
 ```
 
+### 5.8 生成 VS Code Word 操作手册
+
+```bash
+.venv/bin/python generate_word_manual.py
+```
+
+手册输出：
+
+```text
+docs/第三篇论文复现项目目录结构与VSCode训练操作手册.docx
+```
+
+手册详细解释项目目录、每个文件的用途、VS Code 环境配置、数据准备、从零训练、断点续训、权重管理、参数调整、替换数据与类别、评估推理、实验管理和常见错误。
+
 ## 6. 本轮复现结果
 
 训练按 `patience=10` 自然早停于第 43 轮，最佳模型来自第 33 轮。论文在其未公开的原始划分上训练了 45 轮；本轮早 2 轮停止来自样本划分和软件环境差异。
@@ -257,9 +271,11 @@ RTX 4090、batch 4 下，Ultralytics 报告的纯模型推理耗时为 6.248 ms/
 | `evaluate.py` | 用最佳权重评估固定测试集并输出机器可读指标 | 是 |
 | `predict.py` | 对图片、目录或视频推理并汇总类别数量 | 是 |
 | `generate_report.py` | 根据清单、训练 CSV 和测试 JSON 生成中文 PDF | 是 |
+| `generate_word_manual.py` | 生成详细的 VS Code 项目结构与训练操作手册 | 是 |
 | `REPORT.md` | 便于版本管理和快速查看的结果报告 | 是 |
 | `results/` | 最终测试 JSON、训练指标副本等小型复现结果 | 是 |
 | `reports/` | 可下载的 PDF 结果报告 | 是 |
+| `docs/` | 可下载的 Word 项目结构与训练操作手册 | 是 |
 | `downloads/` | 4.2 GB 官方压缩包 | 否 |
 | `data/` | 解压数据及生成的 YOLO 数据集 | 否 |
 | `runs/` | 训练、评估、推理输出及大模型权重 | 否 |
