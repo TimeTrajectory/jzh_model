@@ -277,6 +277,7 @@ def build_manual() -> Document:
 ├── predict.py                        # 图片/目录/视频推理入口
 ├── generate_report.py                # 生成中文 PDF 结果报告
 ├── generate_word_manual.py           # 生成本 Word 手册
+├── generate_paper_analysis.py        # 生成论文深度分析 Word 文档
 ├── archive_manifest.json             # ZIP 审计结果（本地生成）
 ├── dataset.yaml                      # Ultralytics 数据集配置（本地生成）
 ├── dataset_manifest.json             # 每张图片的固定划分清单（本地生成）
@@ -318,6 +319,7 @@ def build_manual() -> Document:
         ["predict.py", "best.pt、图片/目录/视频", "runs/predict/demo/、终端类别计数", "对自己的媒体进行推理"],
         ["generate_report.py", "训练 CSV、测试 JSON、曲线图", "reports/第三篇论文复现结果报告.pdf", "评估完成后生成论文复现报告"],
         ["generate_word_manual.py", "项目结构和固定说明", "docs/…操作手册.docx", "重新生成本 Word 手册"],
+        ["generate_paper_analysis.py", "论文全文、论文表格与复现结果", "docs/…深度分析与创新改进建议.docx", "生成通俗论文解读、批判性分析和创新路线"],
     ], [3.2, 4.5, 4.8, 5.0])
     doc.add_heading("4.2 文档与环境文件", level=2)
     add_table(doc, ["文件", "作用", "修改建议"], [
@@ -663,6 +665,7 @@ chmod +x setup.sh && ./setup.sh
 # 生成 PDF 与 Word 文档
 .venv/bin/python generate_report.py
 .venv/bin/python generate_word_manual.py
+.venv/bin/python generate_paper_analysis.py
 
 # 查看训练进度
 tail -n 3 runs/detector/my_exp_v1/results.csv
