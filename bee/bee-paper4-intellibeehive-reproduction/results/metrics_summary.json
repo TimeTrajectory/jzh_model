@@ -1,0 +1,234 @@
+{
+  "generated_date": "2026-10-31",
+  "paper": "IntelliBeeHive: An Automated Honey Bee, Pollen, and Varroa Destructor Monitoring System",
+  "reproduction_scope": "public-data substitute; original author data/code unavailable",
+  "dataset": {
+    "source": "yibingwei-1/Caltech-Honeybee",
+    "source_commit": "0a06fabcf23bbc75f03af4b028f8070bda8a2649",
+    "split_seed": 2309,
+    "group_rule": "integer frame id // 10000; same group never crosses splits",
+    "group_counts": {
+      "train": 61,
+      "val": 13,
+      "test": 13
+    },
+    "tasks": {
+      "bee": {
+        "train_class_0": 3126,
+        "train_images": 624,
+        "val_class_0": 1207,
+        "val_images": 178,
+        "train_dropped_boxes": 1,
+        "test_class_0": 1043,
+        "test_images": 149
+      },
+      "pollen": {
+        "train_class_0": 2663,
+        "train_images": 624,
+        "train_class_1": 463,
+        "val_class_0": 1063,
+        "val_images": 178,
+        "val_class_1": 144,
+        "train_dropped_boxes": 1,
+        "test_class_0": 945,
+        "test_images": 149,
+        "test_class_1": 98
+      }
+    },
+    "manifest_sha256": "484cdb6625edf9add3ab05313bb590b84a086518fd5c4693b22d68185ae88905"
+  },
+  "experiments": {
+    "bee": {
+      "protocol": {
+        "architecture": "YOLOv7-tiny",
+        "epochs": 100,
+        "image_size": 416,
+        "batch_size": 8
+      },
+      "best_validation_epoch_zero_based": 96,
+      "best_validation": {
+        "precision": 0.9561,
+        "recall": 0.8666,
+        "map50": 0.9101,
+        "map50_95": 0.5275,
+        "fitness": 0.56576
+      },
+      "independent_test": [
+        {
+          "class": "all",
+          "images": 149,
+          "labels": 1043,
+          "precision": 0.93,
+          "recall": 0.862,
+          "f1": 0.8947098214285715,
+          "map50": 0.905,
+          "map50_95": 0.512
+        }
+      ],
+      "speed_rtx4090_batch8": {
+        "inference_ms": 3.7,
+        "nms_ms": 1.2,
+        "total_ms": 4.9
+      },
+      "figures": [
+        "results/figures/bee_training_results.png",
+        "results/figures/bee_test_pr_curve.png",
+        "results/figures/bee_test_f1_curve.png",
+        "results/figures/bee_test_confusion_matrix.png",
+        "results/figures/bee_test_predictions.jpg"
+      ]
+    },
+    "pollen": {
+      "protocol": {
+        "architecture": "YOLOv7-tiny",
+        "epochs": 100,
+        "image_size": 416,
+        "batch_size": 8
+      },
+      "best_validation_epoch_zero_based": 97,
+      "best_validation": {
+        "precision": 0.8573,
+        "recall": 0.7117,
+        "map50": 0.7802,
+        "map50_95": 0.4348,
+        "fitness": 0.46934
+      },
+      "independent_test": [
+        {
+          "class": "all",
+          "images": 149,
+          "labels": 1043,
+          "precision": 0.848,
+          "recall": 0.787,
+          "f1": 0.8163620795107033,
+          "map50": 0.849,
+          "map50_95": 0.452
+        },
+        {
+          "class": "ordinary_bee",
+          "images": 149,
+          "labels": 945,
+          "precision": 0.922,
+          "recall": 0.871,
+          "f1": 0.8957746793084216,
+          "map50": 0.92,
+          "map50_95": 0.527
+        },
+        {
+          "class": "pollen_bearing_bee",
+          "images": 149,
+          "labels": 98,
+          "precision": 0.775,
+          "recall": 0.704,
+          "f1": 0.7377958079783636,
+          "map50": 0.778,
+          "map50_95": 0.377
+        }
+      ],
+      "speed_rtx4090_batch8": {
+        "inference_ms": 4.1,
+        "nms_ms": 1.2,
+        "total_ms": 5.3
+      },
+      "figures": [
+        "results/figures/pollen_training_results.png",
+        "results/figures/pollen_test_pr_curve.png",
+        "results/figures/pollen_test_f1_curve.png",
+        "results/figures/pollen_test_confusion_matrix.png",
+        "results/figures/pollen_test_predictions.jpg"
+      ]
+    }
+  },
+  "tracking": {
+    "protocol": "ground-truth detections; paper midpoint tracker; 50 px scaled from 640 px width",
+    "sequences": [
+      {
+        "sequence": "BEE22-12",
+        "frames": 250,
+        "resolution": [
+          810,
+          430
+        ],
+        "tolerance_px": 63.28125,
+        "assignments": 1973,
+        "track_purity": 1.0,
+        "id_switches": 27,
+        "predicted_crossings": {
+          "Arriving": 0,
+          "Leaving": 5
+        },
+        "ground_truth_crossings": {
+          "Leaving": 8,
+          "Arriving": 1
+        },
+        "absolute_count_error": {
+          "Arriving": 1,
+          "Leaving": 3
+        }
+      },
+      {
+        "sequence": "BEE22-13",
+        "frames": 258,
+        "resolution": [
+          950,
+          600
+        ],
+        "tolerance_px": 74.21875,
+        "assignments": 6462,
+        "track_purity": 0.9631692974311359,
+        "id_switches": 48,
+        "predicted_crossings": {
+          "Arriving": 11,
+          "Leaving": 30
+        },
+        "ground_truth_crossings": {
+          "Arriving": 11,
+          "Leaving": 32
+        },
+        "absolute_count_error": {
+          "Arriving": 0,
+          "Leaving": 2
+        }
+      },
+      {
+        "sequence": "BEE22-16",
+        "frames": 254,
+        "resolution": [
+          950,
+          600
+        ],
+        "tolerance_px": 74.21875,
+        "assignments": 3770,
+        "track_purity": 0.9782493368700266,
+        "id_switches": 124,
+        "predicted_crossings": {
+          "Arriving": 5,
+          "Leaving": 15
+        },
+        "ground_truth_crossings": {
+          "Leaving": 36,
+          "Arriving": 8
+        },
+        "absolute_count_error": {
+          "Arriving": 3,
+          "Leaving": 21
+        }
+      }
+    ],
+    "aggregate": {
+      "sequence_count": 3,
+      "assignments": 12205,
+      "weighted_track_purity": 0.9737812371978697,
+      "id_switches": 199,
+      "arriving_absolute_error": 4,
+      "leaving_absolute_error": 26
+    }
+  },
+  "environment": {
+    "python": "3.10.20",
+    "platform": "Linux-5.15.0-105-generic-x86_64-with-glibc2.31",
+    "torch": "2.1.2+cu121",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 4090"
+  }
+}

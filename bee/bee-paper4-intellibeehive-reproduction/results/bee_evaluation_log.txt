@@ -1,0 +1,29 @@
+Namespace(weights=['/jzk-model/jzh_model/bee/bee-paper4-intellibeehive-reproduction/runs/train/bee_yolov7_tiny_e100/weights/best.pt'], data='/jzk-model/jzh_model/bee/bee-paper4-intellibeehive-reproduction/data/bee_test.yaml', batch_size=8, img_size=416, conf_thres=0.001, iou_thres=0.65, task='val', device='0', single_cls=False, augment=False, verbose=True, save_txt=False, save_hybrid=False, save_conf=False, save_json=False, project='/jzk-model/jzh_model/bee/bee-paper4-intellibeehive-reproduction/runs/eval', name='bee_yolov7_tiny_e100_test', exist_ok=True, no_trace=False, v5_metric=False)
+Fusing layers... 
+IDetect.fuse
+ Convert model to Traced-model... 
+ traced_script_module saved! 
+ model is traced! 
+
+                 all         149        1043        0.93       0.862       0.905       0.512
+Speed: 3.7/1.2/4.9 ms inference/NMS/total per 416x416 image at batch-size 8
+Results saved to /jzk-model/jzh_model/bee/bee-paper4-intellibeehive-reproduction/runs/eval/bee_yolov7_tiny_e100_test
+
+YOLOR 🚀 a207844 torch 2.1.2+cu121 CUDA:0 (NVIDIA GeForce RTX 4090, 24080.875MB)
+
+/opt/conda/lib/python3.10/site-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3526.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+Model Summary: 208 layers, 6007596 parameters, 0 gradients, 13.0 GFLOPS
+
+Scanning images:   0%|          | 0/149 [00:00<?, ?it/s]
+[34m[1mval: [0mScanning '/jzk-model/jzh_model/bee/bee-paper4-intellibeehive-reproduction/data/caltech_bee/labels/test' images and labels... 149 found, 0 missing, 0 empty, 0 corrupted: 100%|██████████| 149/149 [00:00<00:00, 5157.90it/s]
+[34m[1mval: [0mNew cache created: /jzk-model/jzh_model/bee/bee-paper4-intellibeehive-reproduction/data/caltech_bee/labels/test.cache
+
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95:   0%|          | 0/19 [00:00<?, ?it/s]
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95:   5%|▌         | 1/19 [00:00<00:12,  1.50it/s]
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95:  16%|█▌        | 3/19 [00:00<00:03,  4.74it/s]
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95:  32%|███▏      | 6/19 [00:00<00:01,  9.58it/s]
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95:  53%|█████▎    | 10/19 [00:00<00:00, 16.10it/s]
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95:  74%|███████▎  | 14/19 [00:01<00:00, 17.51it/s]
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95:  89%|████████▉ | 17/19 [00:01<00:00, 17.18it/s]
+               Class      Images      Labels           P           R      mAP@.5  mAP@.5:.95: 100%|██████████| 19/19 [00:01<00:00, 12.49it/s]

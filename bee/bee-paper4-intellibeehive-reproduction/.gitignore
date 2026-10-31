@@ -1,0 +1,18 @@
+.venv/
+downloads/
+vendor/
+data/caltech_bee/
+data/caltech_pollen/
+weights/*.pt
+weights/*.onnx
+runs/
+results/*_training_console.log
+results/collect_results_console.log
+results/document_generation.log
+__pycache__/
+*.pyc
+.DS_Store
+
+# Keep small, reviewable experiment summaries.
+!results/
+

@@ -1,0 +1,5 @@
+train: /jzk-model/jzh_model/bee/bee-paper4-intellibeehive-reproduction/data/caltech_bee/images/train
+val: /jzk-model/jzh_model/bee/bee-paper4-intellibeehive-reproduction/data/caltech_bee/images/val
+test: /jzk-model/jzh_model/bee/bee-paper4-intellibeehive-reproduction/data/caltech_bee/images/test
+nc: 1
+names: ['bee']

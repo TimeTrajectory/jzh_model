@@ -1,0 +1,85 @@
+{
+  "protocol": "ground-truth detections; paper midpoint tracker; 50 px scaled from 640 px width",
+  "sequences": [
+    {
+      "sequence": "BEE22-12",
+      "frames": 250,
+      "resolution": [
+        810,
+        430
+      ],
+      "tolerance_px": 63.28125,
+      "assignments": 1973,
+      "track_purity": 1.0,
+      "id_switches": 27,
+      "predicted_crossings": {
+        "Arriving": 0,
+        "Leaving": 5
+      },
+      "ground_truth_crossings": {
+        "Leaving": 8,
+        "Arriving": 1
+      },
+      "absolute_count_error": {
+        "Arriving": 1,
+        "Leaving": 3
+      }
+    },
+    {
+      "sequence": "BEE22-13",
+      "frames": 258,
+      "resolution": [
+        950,
+        600
+      ],
+      "tolerance_px": 74.21875,
+      "assignments": 6462,
+      "track_purity": 0.9631692974311359,
+      "id_switches": 48,
+      "predicted_crossings": {
+        "Arriving": 11,
+        "Leaving": 30
+      },
+      "ground_truth_crossings": {
+        "Arriving": 11,
+        "Leaving": 32
+      },
+      "absolute_count_error": {
+        "Arriving": 0,
+        "Leaving": 2
+      }
+    },
+    {
+      "sequence": "BEE22-16",
+      "frames": 254,
+      "resolution": [
+        950,
+        600
+      ],
+      "tolerance_px": 74.21875,
+      "assignments": 3770,
+      "track_purity": 0.9782493368700266,
+      "id_switches": 124,
+      "predicted_crossings": {
+        "Arriving": 5,
+        "Leaving": 15
+      },
+      "ground_truth_crossings": {
+        "Leaving": 36,
+        "Arriving": 8
+      },
+      "absolute_count_error": {
+        "Arriving": 3,
+        "Leaving": 21
+      }
+    }
+  ],
+  "aggregate": {
+    "sequence_count": 3,
+    "assignments": 12205,
+    "weighted_track_purity": 0.9737812371978697,
+    "id_switches": 199,
+    "arriving_absolute_error": 4,
+    "leaving_absolute_error": 26
+  }
+}

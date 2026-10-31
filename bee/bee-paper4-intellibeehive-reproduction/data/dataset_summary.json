@@ -1,0 +1,35 @@
+{
+  "source": "yibingwei-1/Caltech-Honeybee",
+  "source_commit": "0a06fabcf23bbc75f03af4b028f8070bda8a2649",
+  "split_seed": 2309,
+  "group_rule": "integer frame id // 10000; same group never crosses splits",
+  "group_counts": {
+    "train": 61,
+    "val": 13,
+    "test": 13
+  },
+  "tasks": {
+    "bee": {
+      "train_class_0": 3126,
+      "train_images": 624,
+      "val_class_0": 1207,
+      "val_images": 178,
+      "train_dropped_boxes": 1,
+      "test_class_0": 1043,
+      "test_images": 149
+    },
+    "pollen": {
+      "train_class_0": 2663,
+      "train_images": 624,
+      "train_class_1": 463,
+      "val_class_0": 1063,
+      "val_images": 178,
+      "val_class_1": 144,
+      "train_dropped_boxes": 1,
+      "test_class_0": 945,
+      "test_images": 149,
+      "test_class_1": 98
+    }
+  },
+  "manifest_sha256": "484cdb6625edf9add3ab05313bb590b84a086518fd5c4693b22d68185ae88905"
+}
