@@ -1,0 +1,100 @@
+{
+  "mode": "oracle_ground_truth_detections",
+  "weights": null,
+  "fps_end_to_end": 2.8913217048216002,
+  "sequences": {
+    "BEE22-12": {
+      "frames": 250,
+      "seconds": 59.021080907899886,
+      "event_metrics": {
+        "tp": 0,
+        "fp": 1,
+        "fn": 3,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "gt_events": 3,
+        "pred_events": 1
+      }
+    },
+    "BEE22-13": {
+      "frames": 258,
+      "seconds": 104.64640899607912,
+      "event_metrics": {
+        "tp": 4,
+        "fp": 0,
+        "fn": 10,
+        "precision": 1.0,
+        "recall": 0.2857142857142857,
+        "f1": 0.4444444444444445,
+        "gt_events": 14,
+        "pred_events": 4
+      }
+    },
+    "BEE22-16": {
+      "frames": 254,
+      "seconds": 99.87980015692301,
+      "event_metrics": {
+        "tp": 3,
+        "fp": 2,
+        "fn": 10,
+        "precision": 0.6,
+        "recall": 0.23076923076923078,
+        "f1": 0.33333333333333337,
+        "gt_events": 13,
+        "pred_events": 5
+      }
+    }
+  },
+  "motmetrics": {
+    "BEE22-12": {
+      "mota": 0.9523568170299037,
+      "motp": 0.0,
+      "idf1": 0.9343368803529717,
+      "precision": 1.0,
+      "recall": 0.952863659401926,
+      "num_objects": 1973.0,
+      "num_switches": 1.0,
+      "num_misses": 93.0,
+      "num_false_positives": 0.0,
+      "mean_matched_iou": 1.0
+    },
+    "BEE22-13": {
+      "mota": 0.9571340142370783,
+      "motp": 6.553275784045015e-05,
+      "idf1": 0.8165643205794363,
+      "precision": 1.0,
+      "recall": 0.9656453110492108,
+      "num_objects": 6462.0,
+      "num_switches": 55.0,
+      "num_misses": 222.0,
+      "num_false_positives": 0.0,
+      "mean_matched_iou": 0.9999344672421595
+    },
+    "BEE22-16": {
+      "mota": 0.8655172413793104,
+      "motp": 0.0002901910617950859,
+      "idf1": 0.7824132602893665,
+      "precision": 1.0,
+      "recall": 0.8883289124668435,
+      "num_objects": 3770.0,
+      "num_switches": 86.0,
+      "num_misses": 421.0,
+      "num_false_positives": 0.0,
+      "mean_matched_iou": 0.9997098089382049
+    },
+    "OVERALL": {
+      "mota": 0.928062269561655,
+      "motp": 0.00012039186283687781,
+      "idf1": 0.8254625327363352,
+      "precision": 1.0,
+      "recall": 0.9396968455551004,
+      "num_objects": 12205.0,
+      "num_switches": 142.0,
+      "num_misses": 736.0,
+      "num_false_positives": 0.0,
+      "mean_matched_iou": 0.9998796081371631
+    }
+  },
+  "count_protocol": "vertical image midline, 8 px deadband, event frame tolerance \u00b15; directions are image coordinates, not biological in/out."
+}

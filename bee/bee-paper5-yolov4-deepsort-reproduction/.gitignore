@@ -1,0 +1,15 @@
+.venv/
+vendor/
+downloads/
+data/bee22_darknet/
+weights/*.weights
+runs/train/backup/*.weights
+__pycache__/
+*.pyc
+results/*.log
+downloads/yolov4_parts/
+runs/tracking/
+runs/tracking_oracle/
+runs/predictions/
+runs/web/
+runs/*/tracked.mp4

@@ -1,0 +1,26 @@
+[
+  {
+    "split": "val",
+    "weight": "/jzk-model/jzh_model/bee/bee-paper5-yolov4-deepsort-reproduction/runs/train/backup/yolov4-bee_5000.weights",
+    "elapsed_seconds": 8.040123675018549,
+    "map50": 0.930975,
+    "precision": 0.9,
+    "recall": 0.94,
+    "f1": 0.92,
+    "tp": 2901.0,
+    "fp": 314.0,
+    "fn": 192.0
+  },
+  {
+    "split": "val",
+    "weight": "/jzk-model/jzh_model/bee/bee-paper5-yolov4-deepsort-reproduction/runs/train/backup/yolov4-bee_final.weights",
+    "elapsed_seconds": 6.443993707187474,
+    "map50": 0.921019,
+    "precision": 0.9,
+    "recall": 0.93,
+    "f1": 0.91,
+    "tp": 2891.0,
+    "fp": 338.0,
+    "fn": 202.0
+  }
+]

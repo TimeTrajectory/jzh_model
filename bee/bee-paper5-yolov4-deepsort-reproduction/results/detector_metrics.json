@@ -1,0 +1,14 @@
+{
+  "weights": "/jzk-model/jzh_model/bee/bee-paper5-yolov4-deepsort-reproduction/runs/train/backup/yolov4-bee_best.weights",
+  "images": 762,
+  "labels": 12205,
+  "iou_threshold": 0.5,
+  "elapsed_seconds": 12.408001427538693,
+  "map50": 0.932065,
+  "precision": 0.94,
+  "recall": 0.93,
+  "f1": 0.93,
+  "tp": 11394.0,
+  "fp": 789.0,
+  "fn": 811.0
+}
