@@ -1,0 +1,42 @@
+{
+  "source": "/jzk-model/jzh_model/bee/bee-paper2-tracking-reproduction/data/yolo",
+  "substitute_for": "unpublished stingless-bee data",
+  "splits": {
+    "train": {
+      "images": 1360,
+      "boxes": 16050,
+      "sequences": [
+        "BEE22-01",
+        "BEE22-02",
+        "BEE22-03",
+        "BEE22-04",
+        "BEE22-05",
+        "BEE22-06",
+        "BEE22-07",
+        "BEE22-08",
+        "BEE22-09",
+        "BEE22-10",
+        "BEE22-11",
+        "BEE22-14"
+      ]
+    },
+    "val": {
+      "images": 240,
+      "boxes": 3093,
+      "sequences": [
+        "BEE22-15"
+      ]
+    },
+    "test": {
+      "images": 762,
+      "boxes": 12205,
+      "sequences": [
+        "BEE22-12",
+        "BEE22-13",
+        "BEE22-16"
+      ]
+    }
+  },
+  "manifest_sha256": "14a789a5786f1862b8b3c9b70b04b92a7815038c8594af699a0ba3b73e0a9580",
+  "policy": "complete BEE22 sequences are disjoint"
+}

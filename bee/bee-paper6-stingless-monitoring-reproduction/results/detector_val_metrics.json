@@ -1,0 +1,12 @@
+{
+  "split": "val",
+  "weights": "/jzk-model/jzh_model/bee/bee-paper6-stingless-monitoring-reproduction/runs/train/backup/yolov3-tiny-bee_final.weights",
+  "elapsed_seconds": 3.1270825043320656,
+  "map50": 0.817216,
+  "precision": 0.85,
+  "recall": 0.84,
+  "f1": 0.85,
+  "tp": 2602.0,
+  "fp": 442.0,
+  "fn": 491.0
+}

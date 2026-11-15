@@ -1,0 +1,15 @@
+.venv/
+vendor/
+weights/
+runs/train/backup/*.weights
+data/bee22_darknet/
+data/condition_images/
+__pycache__/
+*.pyc
+results/*.log
+runs/uploads/
+runs/videos/
+downloads/
+data/BEE22/
+data/yolo/
+
