@@ -94,7 +94,7 @@ def make_pdf():
  styles=getSampleStyleSheet(); h=ParagraphStyle('h',parent=styles['Heading2'],fontName=font,textColor=colors.HexColor('#315C3B')); b=ParagraphStyle('b',parent=styles['BodyText'],fontName=font,leading=15); story=[Paragraph('第七篇论文复现结果报告',ParagraphStyle('t',parent=styles['Title'],fontName=font)),Spacer(1,10),Paragraph('复现范围',h),Paragraph('官方扇风蜂数据，固定 YOLO11n，比对 RGB、TSG、TEM。TSG/TEM 在加载时动态生成，Hive 4 不参与梯度更新，但会用于每轮验证、早停和 best.pt 选择，因此结果属于验证表现，不是独立测试。',b)]
  rows=metrics_rows()
  if rows:
-  data=[['输入','P','R','mAP50','mAP50-95']]+rows; t=Table(data); t.setStyle(TableStyle([('FONTNAME',(0,0),(-1,-1),font),('GRID',(0,0),(-1,-1),.5,colors.grey),('BACKGROUND',(0,0),(-1,0),colors.HexColor('#DCEAD8'))])); story += [Paragraph('本地结果',h),t,Paragraph('加速训练轮数：RGB 24、TSG 22、TEM 28（均早停）；Hive 4 同时用于验证和选权重，结果不是独立测试。',b)]
+  data=[['输入','P','R','mAP50','mAP50-95']]+rows; t=Table(data); t.setStyle(TableStyle([('FONTNAME',(0,0),(-1,-1),font),('GRID',(0,0),(-1,-1),.5,colors.grey),('BACKGROUND',(0,0),(-1,0),colors.HexColor('#DCEAD8'))])); story += [Paragraph('本地结果',h),t,Paragraph('加速训练轮数：RGB 24（19.5 分钟）、TSG 22（19.8 分钟）、TEM 28（27.2 分钟），均触发早停。Hive 4 同时用于验证和选权重，结果不是独立测试。',b)]
  else: story += [Paragraph('本地结果',h),Paragraph('正式训练正在运行，完成后重新生成本文档。',b)]
  story += [Paragraph('解释边界',h),Paragraph('首轮只固定 YOLO11n 验证时间编码效应，不等于论文完整 45 组实验。论文 Hive 4 同时作为验证和测试，本地结果也应按该口径解释。',b)]
  SimpleDocTemplate(str(out),pagesize=A4).build(story); return out
