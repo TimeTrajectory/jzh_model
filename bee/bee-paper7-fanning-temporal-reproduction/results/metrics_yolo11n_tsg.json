@@ -1,0 +1,16 @@
+{
+  "encoding": "tsg",
+  "weights": "runs/train/fast_yolo11n_tsg/weights/best.pt",
+  "precision": 0.7603697137416526,
+  "recall": 0.7130788804071246,
+  "map50": 0.8035206075444219,
+  "map50_95": 0.5484299456302184,
+  "elapsed_seconds": 63.56044411659241,
+  "speed_ms": {
+    "preprocess": 0.3165024203351802,
+    "inference": 0.964028756134212,
+    "loss": 0.00022587301726970408,
+    "postprocess": 0.32551786215561956
+  },
+  "evaluation_workers": 0
+}

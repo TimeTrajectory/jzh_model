@@ -1,0 +1,31 @@
+{
+  "source_url": "https://zenodo.org/api/records/15622033/files/dataset-rgb.zip/content",
+  "source_record": "10.5281/zenodo.15622033",
+  "remote_bytes": 17336965310,
+  "remote_md5": "d955adbbf48f4369b178090a42b9966e",
+  "processing": "resize 1920x1080 to 1024x576, JPEG quality 78",
+  "max_per_sequence": 0,
+  "counts": {
+    "train": {
+      "images": 14400,
+      "boxes": 47773,
+      "negative_images": 2201,
+      "sequences": {
+        "20230609c": 2900,
+        "20230711a": 3400,
+        "20230711aaa": 3600,
+        "20230711aaaa": 1800,
+        "20230711cc": 2700
+      }
+    },
+    "val": {
+      "images": 3600,
+      "boxes": 9825,
+      "negative_images": 696,
+      "sequences": {
+        "20230711b": 3600
+      }
+    }
+  },
+  "selected_manifest_sha256": "aea01a95053a54f5e1f8eee1d8cf5c9f14f1a217edab9e5307ff5b6541f26791"
+}
